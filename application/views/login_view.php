@@ -26,11 +26,11 @@
 	        	<p><input type="text" size="30" name="username" value="" placeholder="Username"></p>
 	       		<p><input type="password" size="30" name="password" value="" placeholder="Password"></p>
 	       		<p><button class="btn btn-warning btn-small" name="submit" type="submit">Login</button>
-	       		<a href="<?php echo base_url();?>index.php/forgot" name="">Forgot Password</a><p>
-	       		<a href="<?php echo base_url();?>index.php/login/process" name="">Register</a>
+	       		<a href="<?php echo site_url('forgot') ?>" name="">Forgot Password</a><p>
+	       		<a href="<?php echo site_url('register') ?>" name="">Register</a>
 	       	</form>	
 	    </div>
-	    <div class="span5">
+	    <div class="span4">
 	         
 	    </div>
 	</div>    
