@@ -3,30 +3,50 @@ class Login extends CI_Controller
 {
 	function __construct(){
 		parent:: __construct();
-
+		 $this->load->library('form_validation');
 	}
 
-	function index($msg = '')
+	function index()
 	{
-		
-		$data['msg'] = $msg; 
-    	$this->load->view('login_view', $data);
+    	$this->load->view('login_view');
 	}
 
 	public function process()
 	{
-		$this->load->model('login_model');
+		$username = $this->input->post('username');
+ 		$password = $this->input->post('password');
 
-		$result= $this->login_model->validate();
 
-		if(!$result){
-			$msg = '<font color=red> Invalid Username and/or password.<font>';
-			$this->index($msg);
-		}
-		else{
-			$this->load->helper('url');
-			redirect('home');
-		}
+ 		$valid = array(
+               array(
+                     'field'   => 'username', 
+                     'label'   => 'Username', 
+                     'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'password', 
+                     'label'   => 'Password', 
+                     'rules'   => 'required'
+                  )
+            );
+
+ 		$this->form_validation->set_rules($valid);
+
+ 		if ($this->form_validation->run() == TRUE)
+ 		{
+ 			$this->load->model('login_model');
+			$result= $this->login_model->validate($username,$password);
+			if($result){
+				redirect('home');
+			}
+			else {
+				$this->load->view('login_view');
+			}
+ 		}		
+ 		else
+ 		{
+ 			$this->load->view('login_view');
+ 		}
 	}	
 
 }

@@ -1,19 +1,9 @@
 <?php if (! defined('BASEPATH')) exit('No Direct Script Access Allowed.');
 
 class Register_model extends CI_Model{
- 	public function validate()
+ 	public function validate($email,$username,$password)
  	{
  		
- 		if ($password != $retype)
-		{
-			return false;
-		}
-
-		if (strlen($password) < 6)
-		{
-			return false;
-		}
-
  		$data = array('email' => $email,'username' => $username,'password' => $password);
 
  		$query = $this->db->insert('users',$data);

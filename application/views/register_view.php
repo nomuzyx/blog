@@ -9,7 +9,7 @@
 </head>
 
 <body style="background-color:white;">
-
+<?php echo validation_errors(); ?>
 <div class="container">
 	<div class="row" style="background-color:cadetblue;">	
 		<div class="span6">
@@ -23,10 +23,10 @@
 		<div class="span5 offset4" style="background-color:lavender;">
 			<form name="input" class="form-action" action="<?php echo base_url();?>index.php/register/process" style="margin:10%;" method="post">
 				<p><Strong>Register</strong></p>
-	        	<p><input type="text" class="span4" name="email" value="" placeholder="Email"></p>
-	        	<p><input type="text" class="span3" name="username" value="" placeholder="Username"></p>
-	       		<p><input type="password" class="span3" name="password" value="" placeholder="Password"></p>
-	       		<p><input type="password" class="span3" name="retype" value="" placeholder="Retype Password"></p>
+	        	<p><input type="text" class="span4" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email"></p>
+	        	<p><input type="text" class="span3" name="username" value="<?php echo set_value('username'); ?>" placeholder="Username"></p>
+	       		<p><input type="password" class="span3" name="password" value="<?php echo set_value('password'); ?>" placeholder="Password"></p>
+	       		<p><input type="password" class="span3" name="retype" value="<?php echo set_value('retype'); ?>" placeholder="Retype Password"></p>
 	       		<p><button class="btn btn-success btn-small" name="submit" type="submit">Register</button></p>
 	       	</form>	
 	    </div>

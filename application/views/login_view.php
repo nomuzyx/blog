@@ -5,11 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url() ?>css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url() ?>css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url() ?>css/bootstrap-responsive.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url() ?>css\bootstrap-responsive.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url() ?>css/bootstrap-responsive.min.css">
 </head>
 
-<body style="background-color:white;">
 
+<body style="background-color:white;">
+<?php echo validation_errors(); ?>
 <div class="container">
 	<div class="row" style="background-color:cadetblue;">	
 		<div class="span6">
