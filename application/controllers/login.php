@@ -1,12 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends CI_Controller
 {
+	function __construct(){
+		parent:: __construct();
 
-	function index($msg = NULL)
+	}
+
+	function index($msg = '')
 	{
-		$this->load->helper('url');
+		
 		$data['msg'] = $msg; 
-    	$this->load->view('login_view',$data);
+    	$this->load->view('login_view', $data);
 	}
 
 	public function process()
