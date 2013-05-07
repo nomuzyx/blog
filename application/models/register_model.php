@@ -4,7 +4,7 @@ class Register_model extends CI_Model{
  	public function validate($email,$username,$password)
  	{
  		
- 		$data = array('email' => $email,'username' => $username,'password' => $password);
+ 		$data = array('username' => $username,'password' => $password,'email' => $email);
 
  		$query = $this->db->insert('users',$data);
 

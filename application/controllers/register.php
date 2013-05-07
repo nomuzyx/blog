@@ -32,7 +32,7 @@ class Register extends CI_Controller
  		$retype   = $this->input->post('retype');
 
  		
- 		$valid = array(
+ 		$config = array(
  			   array(
                      'field'   => 'email', 
                      'label'   => 'Email', 
@@ -56,7 +56,7 @@ class Register extends CI_Controller
             );
 
  		
- 		$this->form_validation->set_rules($valid);
+ 		$this->form_validation->set_rules($config);
 
  		if ($this->form_validation->run() == TRUE)
  		{

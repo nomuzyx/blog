@@ -22,11 +22,11 @@
 	</div>	
     <div class="row" style="margin-top:10%;padding:1%;">	    
 		<div class="span4 offset4" style="background-color:lavender;">
-			<form name="input" class="form-action" action="<?php echo base_url();?>index.php/login/process" style="margin:10%;" method="post">
+			<form name="input" class="form-action" action="<?php echo site_url('login/process');?>" style="margin:10%;" method="post">
 				<p><Strong>LOGIN</strong></p>
-	        	<p><input type="text" size="30" name="username" value="" placeholder="Username"></p>
-	       		<p><input type="password" size="30" name="password" value="" placeholder="Password"></p>
-	       		<p><button class="btn btn-warning btn-small" name="submit" type="submit">Login</button>
+	        	<p><input type="text"  name="username" value="" placeholder="Username"></p>
+	       		<p><input type="password" name="password" value="" placeholder="Password"></p>
+	       		<p><button class="btn btn-success btn-small" name="submit" type="submit">Login</button>
 	       		<a href="<?php echo site_url('forgot') ?>" name="">Forgot Password</a><p>
 	       		<a href="<?php echo site_url('register') ?>" name="">Register</a>
 	       	</form>	
