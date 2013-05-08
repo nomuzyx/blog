@@ -4,6 +4,7 @@ class Register extends CI_Controller
 	function __construct(){
 		parent::__construct();
 		 $this->load->library('form_validation');
+		 
 	}
 
 	function index()
@@ -61,6 +62,7 @@ class Register extends CI_Controller
  		if ($this->form_validation->run() == TRUE)
  		{
  			$this->load->model('register_model');
+ 			
 			$result= $this->register_model->validate($email,$username,$password);
 			if(!$result){
 				$this->index();

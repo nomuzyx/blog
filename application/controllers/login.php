@@ -3,6 +3,7 @@ class Login extends CI_Controller
 {
 	function __construct(){
 		parent:: __construct();
+		 $this->load->library('session');
 		 $this->load->library('form_validation');
 	}
 
@@ -36,7 +37,10 @@ class Login extends CI_Controller
  		{
  			$this->load->model('login_model');
 			$result= $this->login_model->validate($username,$password);
-			if($result){
+
+			$this->session->set_userdata($result);
+
+			if(isset($result)){
 				redirect('home');
 			}
 			else {

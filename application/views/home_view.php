@@ -16,6 +16,7 @@
   		<div class="container">
   			<a class="brand" href="<?php echo site_url('home'); ?>"> Blog</a>
     		<ul class="nav pull-right">
+      			<li class="active"><a href="<?php echo site_url('newblog'); ?>">Create Blog</a></li>
       			<li class="active"><a href="<?php echo site_url('login'); ?>">Login</a></li>
       			<li><a href="<?php echo site_url('register'); ?>">Signup</a></li>
     		</ul>
@@ -25,7 +26,7 @@
 <div class="container">
     <div class="row" style="margin-top:0%;padding:0%;">	    
 		<div class="span6">
-				<p><strong>Blog List</strong></p>
+			<p><strong>Blog List</strong></p>
 	    </div>
 	    <div class="span6">
 			<div class="input-append">
@@ -38,9 +39,9 @@
 			<table class="table">
 				<?php
 				foreach($userpost as $title)
-				{
+				{	
   					echo "<tr>";
-  					echo '<td><a href=site_url("blogdetail")>' . $title['title'] . "</a></td>";
+  					echo '<td><a href="blogdetail">'. $title['title'] . "</a></td>";
   					echo "</tr>";
 				}
 				?>
