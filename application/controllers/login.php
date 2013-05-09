@@ -37,9 +37,8 @@ class Login extends CI_Controller
  		{
  			$this->load->model('login_model');
 			$result= $this->login_model->validate($username,$password);
-
 			$this->session->set_userdata($result);
-
+				
 			if(isset($result)){
 				redirect('home');
 			}

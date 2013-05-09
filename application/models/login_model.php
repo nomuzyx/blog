@@ -11,8 +11,11 @@ class Login_model extends CI_Model{
            -> get('users');
 
          foreach ($query->result() as $row) {
-            $userid => $row->id;
-        }  
+          $user_session = array(
+                          'user_id' => $row->id,
+                          'username' => $row->username
+                          );                          
+                  }  
 
  	//	$this->db->where('username',$username);
     //	$this->db->where('password',$password);
@@ -20,9 +23,9 @@ class Login_model extends CI_Model{
 
  		if($query->num_rows() == 1)
  		{
- 			return $userid;	
+ 			return $user_session;
  		}
- 		//return false;
+// 		return false;
 
  	}
 }

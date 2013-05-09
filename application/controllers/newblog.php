@@ -23,7 +23,8 @@ class Newblog extends CI_Controller
  		if ($this->form_validation->run() == TRUE)
  		{
  			$this->load->model('newblog_model');
- 			$session_id = $this->session->userdata('session_id');
+
+ 			$session_id = $this->session->userdata('user_id');
 
 			$result= $this->newblog_model->validate($title,$content,$session_id);
 
@@ -31,7 +32,8 @@ class Newblog extends CI_Controller
 				$this->index();
 			}
 			else {
-				$this->load->view('home');
+				$this->load->view(site_url('home_model'));
+
 			}
  		}		
  		else
