@@ -32,8 +32,7 @@ class Newblog extends CI_Controller
 				$this->index();
 			}
 			else {
-				$this->load->view(site_url('home_model'));
-
+				redirect(site_url('home'));
 			}
  		}		
  		else

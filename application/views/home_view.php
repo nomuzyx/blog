@@ -40,10 +40,14 @@
 				<?php
 				foreach($userpost as $title)
 				{	
-  					echo "<tr>";
-  					echo '<td><a href="blogdetail">'. $title['title'] . "</a></td>";
-  					echo "</tr>";
+					$t = $title['id'];
+				?>	
+  				<tr>
+  					<td><a href="<?php echo site_url("blogdetail/?t=$t"); ?>"><?= $title['title'] ?></a></td>
+  				</tr>
+  				<?php
 				}
+
 				?>
 			</table>	
 	    </div>
