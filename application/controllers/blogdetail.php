@@ -16,6 +16,7 @@ class Blogdetail extends CI_Controller
  		$this->load->model('blogdetail_model');
 
 		$data['userpost'] = $this->blogdetail_model->validate($bid);
+		$data['comments'] = $this->blogdetail_model->retrievecomments($bid);
 
 		if ($data['userpost'] != NUll)
 		{
@@ -43,9 +44,7 @@ class Blogdetail extends CI_Controller
  		if ($this->form_validation->run() == TRUE)
  		{
  			$this->load->model('blogdetail_model');
-
  	//		$session_id = $this->session->userdata('user_id');
-
 			$result= $this->blogdetail_model->insertcomment($postid,$name,$email,$comment);
 
 			if(!$result){

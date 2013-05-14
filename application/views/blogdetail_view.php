@@ -71,6 +71,7 @@
 						$mpostid  = $title['id'];
 						$mtitle   = $title['title'];
 						$mcontent = stripslashes(html_entity_decode($title['content']));
+                        
 					}	
 					?>	
 
@@ -78,7 +79,27 @@
 		        	<p><textarea id="content" name="content" rows="8" class="span8" readonly></textarea></p>-->
 		        	<p style="color:blue;"><strong><?php echo $mtitle; ?></strong></p>
 		        	<p style="color:blue;"><?php echo $mcontent; ?></p>
-		        	<p><Strong>Comment on Blog</strong></p>
+
+		        	<p><Strong>Comments</strong></p>
+                    <?php
+
+                    if (!empty($comments))
+                    {
+
+                        
+
+                    foreach($comments as $comment1)
+                    {   
+                    ?>
+                    <p style="color:tan;"><strong><?php echo 'Name '.$comment1['name'].' Email '.$comment1['email']; ?></strong></p>
+                    <p style="color:tan;"><?php echo $comment1['comment']; ?></p>    
+                    <?php    
+                    }   
+                    }
+                    ?>  
+
+
+                    <p><Strong>Comment on Blog</strong></p>
 		        	<p><input type="text" class="span5" name="name" value="" placeholder="Name"></p>
 		        	<p><input type="text" class="span5" name="email" value="" placeholder="Email"></p>
 	        		<p><textarea id="elm1" name="comment" rows="10" class="span5"></textarea></p>

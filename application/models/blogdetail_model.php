@@ -19,6 +19,24 @@ class blogdetail_model extends CI_Model{
  		}
  		
  	}
+ 	public function retrievecomments($bid)
+ 	{
+ 		
+ 		$this->db->where("post_id", $bid);
+
+		$query = $this->db->get('comments');
+
+ 		if($query->num_rows() > 0)
+ 		{
+ 			$data = array();
+        	foreach($query->result_array() as $row) 
+        	{
+           		$data[]=$row;
+        	}
+        	return $data;	
+ 		}
+ 		
+ 	}
  	public function insertcomment($postid,$name,$email,$comment)
  	{	
  		$this->load->helper('string');
