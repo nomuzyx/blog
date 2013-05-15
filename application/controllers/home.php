@@ -10,7 +10,12 @@ class Home extends CI_Controller
 	{	
 		$data = array();
  		$this->load->model('home_model');
+
 		$data['userpost']= $this->home_model->validate();
+
+		$data['session_id'] = $this->session->userdata('user_id');
+		$data['session_user'] = $this->session->userdata('username');
+
  		$this->load->view('home_view',$data);
 	}
 }

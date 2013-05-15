@@ -64,45 +64,55 @@
 			<div class="span12">
 
 				<form name="input" class="form-action" action="<?php echo site_url('blogdetail/process'); ?>" style="margin:1%;" method="post">
-					<h2>Blog</h2>
-					<?php
-					foreach($userpost as $title)
-					{	
-						$mpostid  = $title['id'];
-						$mtitle   = $title['title'];
-						$mcontent = stripslashes(html_entity_decode($title['content']));
+					<div class="row" style="background-color:darkcyan">
+                        <div class="span6">
+                            <h2>Blog</h2>
+					        <?php
+					        foreach($userpost as $title)
+					        {	
+						    $mpostid  = $title['id'];
+						    $mtitle   = $title['title'];
+						    $mcontent = stripslashes(html_entity_decode($title['content']));
                         
-					}	
-					?>	
+					        }	
+					        ?>	
 
-		        	<!--<p><input type="text" class="span8" name="title" value="<?php echo $mtitle; ?>" placeholder="Title" readonly></p>
-		        	<p><textarea id="content" name="content" rows="8" class="span8" readonly></textarea></p>-->
-		        	<p style="color:blue;"><strong><?php echo $mtitle; ?></strong></p>
-		        	<p style="color:blue;"><?php echo $mcontent; ?></p>
+		        	        <!--<p><input type="text" class="span8" name="title" value="<?php echo $mtitle; ?>" placeholder="Title" readonly></p>
+		        	        <p><textarea id="content" name="content" rows="8" class="span8" readonly></textarea></p>-->
+		        	        <p style="color:blue;"><strong><?php echo $mtitle; ?></strong></p>
+		        	        <p style="color:blue;"><?php echo $mcontent; ?></p>
+                        </div>
+                        <div class="span6">
 
-		        	<p><Strong>Comments</strong></p>
-                    <?php
+                        </div>       
 
-                    if (!empty($comments))
-                    {
+                    </div> 
+                    <div class="row" style="background-color:lightslategray">
+                        <div class="span6">
+		        	        <p><Strong>Comments</strong></p>
+                            <?php
 
-                        
+                            if (!empty($comments))
+                            {
+                            foreach($comments as $comment1)
+                            {   
+                            ?>
+                            <p style="color:tan;"><?php echo $comment1['comment']; ?></p>  
+                            <p style="color:tan;"><strong><?php echo '-By '.$comment1['name'].' ('.$comment1['email'].')'; ?></strong></p>
+                            <?php    
+                            }   
+                            }
+                            ?>  
+                        </div>
+                        <div class="span6">
 
-                    foreach($comments as $comment1)
-                    {   
-                    ?>
-                    <p style="color:tan;"><strong><?php echo 'Name '.$comment1['name'].' Email '.$comment1['email']; ?></strong></p>
-                    <p style="color:tan;"><?php echo $comment1['comment']; ?></p>    
-                    <?php    
-                    }   
-                    }
-                    ?>  
+                        </div>   
+                    </div>        
 
-
-                    <p><Strong>Comment on Blog</strong></p>
-		        	<p><input type="text" class="span5" name="name" value="" placeholder="Name"></p>
-		        	<p><input type="text" class="span5" name="email" value="" placeholder="Email"></p>
-	        		<p><textarea id="elm1" name="comment" rows="10" class="span5"></textarea></p>
+                            <p><Strong>Comment on Blog</strong></p>
+		        	        <p><input type="text" class="span5" name="name" value="" placeholder="Name"></p>
+		        	        <p><input type="text" class="span5" name="email" value="" placeholder="Email"></p>
+	        		        <p><textarea id="elm1" name="comment" rows="10" class="span5"></textarea></p>
 	       			<p><button class="btn btn-success btn-meduim" name="submit" value="<?php echo set_value('comment'); ?>" type="submit">Post</button></p>
 	       			<p><input type="hidden" name="postid" value="<?= $mpostid ?>" ></p>
 		       		<!--<p><button class="btn btn-success btn-meduim" name="submit" value="<?php //echo set_value('content'); ?>" type="submit">Post</button></p>-->
